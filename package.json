@@ -1,0 +1,26 @@
+{
+  "name": "frenteprevencaocovidrn-org-br",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app",
+    "dev": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gilmarandrade/frenteprevencaocovidrn_frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gilmarandrade/frenteprevencaocovidrn_frontend/issues"
+  },
+  "homepage": "https://github.com/gilmarandrade/frenteprevencaocovidrn_frontend#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
