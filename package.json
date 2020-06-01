@@ -4,8 +4,11 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app",
-    "dev": "nodemon"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "start": "node server",
+    "postinstall": "npm run build"
   },
   "repository": {
     "type": "git",
