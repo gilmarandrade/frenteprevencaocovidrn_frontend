@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "frente-prevencao-covid-19-rn",
+  "private_key_id": "9fc589d61144a08498556a9f52219f0a274bf917",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDHDnzZRbtWT3cs\nlHSq1wQDUARdrK6UrkJAePH4A+NWfKWBoiPEm2b7na2Ob8NMNERNXN0RnsGP0cEr\nvT8Y3SxFNkUbXOynRbT9bXjWHlAJVlLulioyb5MK8WofP5z4QvXqPUaSjId1BBnH\nsbJ1emvJtPRSFefIhljeanGb4A4TD72GRm1ZoYbLOZb+Q7u1xPkAHuzb0980K7g1\nDIcnwa19Co3g85hCB+/XXSyV6ZdGKBwvq/iLSrDiLWgIQxdsjBggtX9zbym/C9z+\njA3CTEuGjOjlUYW4oo2N/LwKSveyTKj/E4kt2NihdPxfivkGLno67sYi9f14O/VZ\nGfSZYIS5AgMBAAECggEAD/M43RKVuSvnK1zub8mInmjVHrnxZ8PCVobycZqDJwkY\nHHf06IJAyWDoOSl6s1KdVfse0jR/w1HOCh6RDaGcVGPtu+xxYJJo9yUkWXjmlibz\nAH/rG+09kbMIOz6GSgzYhmdYTjIhQQa995bFK11uwWQE70Zm0xYzzQenuJMmoY99\nQtRcs5xbEtCJPI2Uan7OazaqGXck6ma+Eg91ZqUBMyzKsEOpWoV0KugB019ea8JO\nCA0mKzrZiukLpg+6GBCfh1Hih3/paim1IAcH1MQKkK1bTPmThrmyar6EPppAe+Bz\nX3Klq5TW5yKfIjlRH3k1LzjU21yAOxdVsukBEG2tAQKBgQDnVFuD68W4i0mP0yDf\necRX8faq9IWf7+chyqAcYA/fqTWVQc7fpQc4i/x4UhOxrqfi6BfwBAJo3fb3kJtK\n+5k836P7KoKliTiJfEkVZ/h1xnyPTm3wsysRkYDNv6IWG9/YQAhfG633DY+Cvxzv\ngymo+hOiWsoJtHJ99TUePrYruQKBgQDcSQfo8vWREs8Qo8ftJxvUSJjp4wD8TSm7\n99+xQpuf6MIFQERDHnQNp34vovpwNChL7uOAf/gU8GXejleRdwNwVPGqobYMr5hK\nBZJumQNNtIOeTa4MpjM11tECxD1+rOhewFi/ucwKXRt1L5P3IaNzmoRf6SIOx45F\nUan8dgOhAQKBgQCp/jPCHeCOXM0SA/SERNckSYsa1dXcUk9nZZ+DOpRvp8jYhiOf\n9YX45+YABVCzocV92VC98DRVG8gA5SM5Vuqk8TNvvy2Ct/P0FIEgWecbpWCjbt8b\noo5juqkMiWZzGMjGAUglnBGbGzv6uLZqy9gxdJQ5Gr6doxz/stH2B9+XAQKBgDEx\n7h5MBCN9+9hPe1qvHTvvapbxJ0sxQFzGIqLHqVGw/YOGsrf6mRhji36/+wYL3+P1\nWcFc0t56QYXObCgEWDRCBCaDLtDudigxzl38tgwogCxeVLxmcZFYhB0GDmW3370p\nX6iRqcu2t2cYVQcf8AzlOSLiQcTjNBavAjNrd6wBAoGBAOQgguJdAd4fcXFlwZBy\ntbDBO/Z5undYEQ5Pf3P5/0OZTkgu5KNyB1WAMl4ISYofGOr1OzGgFA7rFNrT63Dx\ngDg/8XWptRtlvHBqQVpMx+uq5JoAo0o2meqVRHcTOngbc41zhb/pjAgL6gRJRGAh\nb8M+v4ydgBEOAUyOm6ZsAHwK\n-----END PRIVATE KEY-----\n",
+  "client_email": "sync-bot@frente-prevencao-covid-19-rn.iam.gserviceaccount.com",
+  "client_id": "112706967150152398957",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/sync-bot%40frente-prevencao-covid-19-rn.iam.gserviceaccount.com"
+}
