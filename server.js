@@ -20,5 +20,5 @@ app.get("*", (req, res) => {// O wildcard '*' serve para servir o mesmo index.ht
 });
 
 app.listen(configs.port, () => {
-    console.log(`foi frenteprevencaocovidrn-org-br (Frontend) na ${configs.port} api url: ${configs.api}!`);
+    console.log(`foi frenteprevencaocovidrn-org-br (Frontend) na ${configs.port} api url: ${configs.api}! ${process.env.NODE_ENV}`);
 });
