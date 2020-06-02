@@ -1,7 +1,10 @@
 <template>
     <div>
-       <PageTitle icon="fa fa-home" main="Idosos" sub="alguns idosos da unidade" />Idosos
-       <b-table hover :items="idosos"></b-table>
+       <PageTitle icon="fa fa-home" main="Idosos" sub="unidade xxxx" />
+       <b-card>
+            <p>foram encontrados {{ idosos.length }} registros</p>
+            <b-table hover :items="idosos" :fields="fields"></b-table>
+       </b-card>
     </div>
 </template>
 
@@ -16,20 +19,30 @@ export default {
     data: function() {
         return {
             idosos: [],
+            fields: [
+                { key: 'row', label: 'row', sortable: true },
+                { key: 'dataNascimento', label: 'Data de Nascimento', sortable: true },
+                { key: 'nome', label: 'Nome', sortable: true },
+                { key: 'telefone1', label: 'Telefone 1', sortable: true },
+                { key: 'telefone2', label: 'Telefone 2', sortable: true },
+                { key: 'agenteSaude', label: 'Agente de Saúde', sortable: true },
+            ]
         }
     },
+
     methods: {
         loadIdosos() {
             console.log('load idosos');
             const id = '1sP1UegbOnv5dVoO6KMtk2nms6HqjFs3vuYN5FGMWasc';
             const sheetName = 'Idosos';
-            const range = 'A1:E10';
+            const range = 'A2:E1200';
             const url = `${baseApiUrl}/docs/${id}/sheets/${sheetName}/range/${range}`;
 
             axios.get(url).then(res => {
                 const array = [];
-                res.data.forEach(item => {
+                res.data.forEach((item, index) => {
                     array.push({
+                        row: 'A' + (index + 2),
                         dataNascimento: item[0],
                         nome: item[1],
                         telefone1: item[2],
