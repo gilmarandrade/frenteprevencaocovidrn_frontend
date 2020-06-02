@@ -1,7 +1,7 @@
 <template>
     <div class="home">
         <PageTitle icon="fa fa-home" main="Home" sub="Bem vindo a home" />
-       
+         <router-link to="/googlesheets/">google sheets page</router-link>
     </div>
 </template>
 
@@ -12,7 +12,6 @@ import PageTitle from '../template/PageTitle'
 export default {
         name: 'Home',
         components: { PageTitle },
-
 }
 </script>
 
