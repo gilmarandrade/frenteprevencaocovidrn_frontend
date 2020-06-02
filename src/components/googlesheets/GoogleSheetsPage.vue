@@ -13,7 +13,10 @@
               <IdososPorRiscoPage />
             </b-tab>
             <b-tab title="Idosos com Escalas">
-              Idosos com Escalas
+              <IdososComEscalaPage />
+            </b-tab>
+            <b-tab title="Idosos em ordem alfabética">
+              <IdososOrdemAlfabeticaPage />
             </b-tab>
           </b-tabs>
         </b-card>
@@ -25,10 +28,12 @@ import PageTitle from '../template/PageTitle'
 import IdososPage from './IdososPage'
 import IdososPorVulnerabilidadePage from './IdososPorVulnerabilidadePage'
 import IdososPorRiscoPage from './IdososPorRiscoPage'
+import IdososComEscalaPage from './IdososComEscalaPage'
+import IdososOrdemAlfabeticaPage from './IdososOrdemAlfabeticaPage'
 
 export default {
     name: 'GoogleSheetsPage',
-    components: { PageTitle, IdososPage, IdososPorVulnerabilidadePage, IdososPorRiscoPage },
+    components: { PageTitle, IdososPage, IdososPorVulnerabilidadePage, IdososPorRiscoPage, IdososComEscalaPage, IdososOrdemAlfabeticaPage },
 }
 </script>
 
