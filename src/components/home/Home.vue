@@ -1,7 +1,7 @@
 <template>
     <div class="home">
         <PageTitle icon="fa fa-home" main="Home" sub="Bem vindo a home" />
-         <router-link to="/googlesheets/">google sheets page</router-link>
+        <router-link to="/googlesheets/">google sheets page</router-link>
     </div>
 </template>
 
