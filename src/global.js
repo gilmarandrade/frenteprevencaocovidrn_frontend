@@ -1,6 +1,7 @@
 import Vue from 'vue';
 
 export const baseApiUrl = require('../environment').api;
+export const node_env = require('../environment').node_env;
 // export const baseApiUrl = process.env.baseApiUrl ? process.env.baseApiUrl : 'http://localhost:3000';
 console.log('api url: ' + baseApiUrl)
 export function showError(e) {
