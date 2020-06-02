@@ -10,7 +10,7 @@ import { baseApiUrl, showError } from '@/global';
 import axios from 'axios';
 
 export default {
-    name: 'IdososPorVulnerabilidadePage',
+    name: 'IdososPorRiscoPage',
     data: function() {
         return {
             idosos: [],
@@ -29,7 +29,7 @@ export default {
         loadIdosos() {
             console.log('load idosos');
             const id = '1sP1UegbOnv5dVoO6KMtk2nms6HqjFs3vuYN5FGMWasc';
-            const sheetName = 'Idosos por vulnerabilidade';
+            const sheetName = 'Idosos por risco';
             const range = 'A2:E1200';
             const url = `${baseApiUrl}/docs/${id}/sheets/${sheetName}/range/${range}`;
 

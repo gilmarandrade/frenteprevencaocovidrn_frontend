@@ -10,7 +10,7 @@
               <IdososPorVulnerabilidadePage />
             </b-tab>
             <b-tab title="Idosos por Risco">
-              Idosos por Risco
+              <IdososPorRiscoPage />
             </b-tab>
             <b-tab title="Idosos com Escalas">
               Idosos com Escalas
@@ -24,10 +24,11 @@
 import PageTitle from '../template/PageTitle'
 import IdososPage from './IdososPage'
 import IdososPorVulnerabilidadePage from './IdososPorVulnerabilidadePage'
+import IdososPorRiscoPage from './IdososPorRiscoPage'
 
 export default {
     name: 'GoogleSheetsPage',
-    components: { PageTitle, IdososPage, IdososPorVulnerabilidadePage },
+    components: { PageTitle, IdososPage, IdososPorVulnerabilidadePage, IdososPorRiscoPage },
 }
 </script>
 
