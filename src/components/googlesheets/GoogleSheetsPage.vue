@@ -15,7 +15,7 @@
             <b-tab title="Idosos com Escalas">
               <IdososComEscalaPage />
             </b-tab>
-            <b-tab title="Idosos em ordem alfabética">
+            <b-tab title="Idosos em ordem Alfabética">
               <IdososOrdemAlfabeticaPage />
             </b-tab>
           </b-tabs>

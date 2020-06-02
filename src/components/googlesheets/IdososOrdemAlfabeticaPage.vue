@@ -26,7 +26,7 @@ export default {
             console.log('load idosos');
             const id = '1sP1UegbOnv5dVoO6KMtk2nms6HqjFs3vuYN5FGMWasc';
             const sheetName = 'Idosos em ordem alfabética';
-            const range = 'A2:A1200';
+            const range = 'A2:A';
             const url = `${baseApiUrl}/docs/${id}/sheets/${sheetName}/range/${range}`;
 
             axios.get(url).then(res => {
