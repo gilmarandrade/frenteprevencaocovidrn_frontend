@@ -10,7 +10,7 @@ import { baseApiUrl, showError } from '@/global';
 import axios from 'axios';
 
 export default {
-    name: 'Vigilante1Page',
+    name: 'Vigilante2Page',
     data: function() {
         return {
             items: [],
@@ -37,7 +37,7 @@ export default {
         loadItems() {
             console.log('load items');
             const id = '1tBlFtcTlo1xtq4lU1O2Yq94wYaFfyL9RboX6mWjKhh4';
-            const sheetName = 'Vigilante 1';
+            const sheetName = 'Vigilante 2';
             const range = 'A2:M';
             const url = `${baseApiUrl}/docs/${id}/sheets/${sheetName}/range/${range}`;
 
