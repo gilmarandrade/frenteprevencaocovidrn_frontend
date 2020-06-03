@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 
 import Home from '@/components/home/Home'
 import IdososSpreadsheet from '@/components/googlesheets/idosos/IdososSpreadsheet'
+import GerenciamentoSpreadsheet from '@/components/googlesheets/gerenciamento/GerenciamentoSpreadsheet'
 
 Vue.use(VueRouter);
 
@@ -16,6 +17,11 @@ const routes = [
         name: 'idososSpreadsheet',
         path: '/googlesheets/idosos',
         component: IdososSpreadsheet,
+    },
+    {
+        name: 'gerenciamentoSpreadsheet',
+        path: '/googlesheets/gerenciamento',
+        component: GerenciamentoSpreadsheet,
     },
     // {
     //     name: 'adminPages',
