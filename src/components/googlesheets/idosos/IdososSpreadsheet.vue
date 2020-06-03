@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import PageTitle from '../template/PageTitle'
+import PageTitle from '../../template/PageTitle'
 import IdososPage from './IdososPage'
 import IdososPorVulnerabilidadePage from './IdososPorVulnerabilidadePage'
 import IdososPorRiscoPage from './IdososPorRiscoPage'
@@ -32,7 +32,7 @@ import IdososComEscalaPage from './IdososComEscalaPage'
 import IdososOrdemAlfabeticaPage from './IdososOrdemAlfabeticaPage'
 
 export default {
-    name: 'GoogleSheetsPage',
+    name: 'IdososSpreadsheet',
     components: { PageTitle, IdososPage, IdososPorVulnerabilidadePage, IdososPorRiscoPage, IdososComEscalaPage, IdososOrdemAlfabeticaPage },
 }
 </script>
