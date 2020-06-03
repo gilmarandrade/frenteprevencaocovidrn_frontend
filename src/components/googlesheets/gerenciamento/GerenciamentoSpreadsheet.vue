@@ -13,7 +13,7 @@
               <Vigilante3Page />
             </b-tab>
             <b-tab title="Vigilante 4">
-              vigila
+              <Vigilante4Page />
             </b-tab>
             <b-tab title="Respostas">
               respostas
@@ -35,10 +35,11 @@ import PageTitle from '../../template/PageTitle'
 import Vigilante1Page from './Vigilante1Page'
 import Vigilante2Page from './Vigilante2Page'
 import Vigilante3Page from './Vigilante3Page'
+import Vigilante4Page from './Vigilante4Page'
 
 export default {
     name: 'GerenciamentoSpreadsheet',
-    components: { PageTitle, Vigilante1Page, Vigilante2Page, Vigilante3Page },
+    components: { PageTitle, Vigilante1Page, Vigilante2Page, Vigilante3Page, Vigilante4Page },
 }
 </script>
 
