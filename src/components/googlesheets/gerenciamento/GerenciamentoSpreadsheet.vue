@@ -22,7 +22,7 @@
               <EscalasPage />
             </b-tab>
             <b-tab title="Status Atendimentos">
-              atendimentos
+              <StatusAtendimentosPage />
             </b-tab>
            
           </b-tabs>
@@ -38,10 +38,11 @@ import Vigilante3Page from './Vigilante3Page'
 import Vigilante4Page from './Vigilante4Page'
 import RespostasPage from './RespostasPage'
 import EscalasPage from './EscalasPage'
+import StatusAtendimentosPage from './StatusAtendimentosPage'
 
 export default {
     name: 'GerenciamentoSpreadsheet',
-    components: { PageTitle, Vigilante1Page, Vigilante2Page, Vigilante3Page, Vigilante4Page, RespostasPage, EscalasPage },
+    components: { PageTitle, Vigilante1Page, Vigilante2Page, Vigilante3Page, Vigilante4Page, RespostasPage, EscalasPage, StatusAtendimentosPage },
 }
 </script>
 
