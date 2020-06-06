@@ -27,6 +27,7 @@ export default {
                 { key: 'escalas.vulnerabilidade', label: 'Escala de Vulnerabilidade', sortable: true },
                 { key: 'escalas.epidemiologica', label: 'Escala Epidemiológica', sortable: true },
                 { key: 'escalas.riscoContagio', label: 'Escala Risco COVID-19', sortable: true },
+                { key: 'escalas.scoreOrdenacao', label: 'Score Ordenação', sortable: true },
             ]
         }
     },
