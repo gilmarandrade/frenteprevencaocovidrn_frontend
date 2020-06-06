@@ -1,12 +1,15 @@
 <template>
     <div class="home">
-        <PageTitle icon="fa fa-home" main="Home" sub="Bem vindo a home" />
+        <PageTitle icon="fa fa-home" main="Home" sub="Bem vindo a unidade xxxx" />
         <ul>
             <li>
                 <router-link to="/googlesheets/idosos">Idosos Spreadsheet</router-link>
             </li>
             <li>
                 <router-link to="/googlesheets/gerenciamento">Gerenciamento Spreadsheet</router-link>
+            </li>
+            <li>
+                <router-link to="/atendimentos">Atendimentos</router-link>
             </li>
         </ul>
     </div>
