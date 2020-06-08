@@ -4,7 +4,7 @@ import VueRouter from 'vue-router'
 import Home from '@/components/home/Home'
 import IdososSpreadsheet from '@/components/googlesheets/idosos/IdososSpreadsheet'
 import GerenciamentoSpreadsheet from '@/components/googlesheets/gerenciamento/GerenciamentoSpreadsheet'
-import AtendimentosPage from '@/components/atendimentos/AtendimentosPage'
+import VigilanteHome from '@/components/vigilante/VigilanteHome'
 
 Vue.use(VueRouter);
 
@@ -25,9 +25,9 @@ const routes = [
         component: GerenciamentoSpreadsheet,
     },
     {
-        name: 'atendimentos',
-        path: '/atendimentos',
-        component: AtendimentosPage,
+        name: 'Página do vigilante',
+        path: '/vigilante/:id/:nome',
+        component: VigilanteHome,
     },
     // {
     //     name: 'adminPages',
