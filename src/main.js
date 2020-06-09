@@ -6,6 +6,9 @@ import './config/bootstrap'
 import store from './config/store'
 import router from './config/router'
 
+import '@fortawesome/fontawesome-free/css/all.css'
+import '@fortawesome/fontawesome-free/js/all.js'
+
 Vue.config.productionTip = false
 
 const environment = require('../environment');
