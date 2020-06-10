@@ -8,9 +8,9 @@
                     <b>{{ data.item.nome }}</b>
                 </div>
                 <div class="badges" v-if="data.item.stats.ultimaEscala">
-                    <Badge :value="data.item.stats.ultimaEscala.vulnerabilidade" />
-                    <Badge :value="data.item.stats.ultimaEscala.epidemiologica" />
-                    <Badge :value="data.item.stats.ultimaEscala.riscoContagio" />
+                    <Badge v-if="data.item.stats.ultimaEscala.vulnerabilidade" :value="data.item.stats.ultimaEscala.vulnerabilidade" />
+                    <Badge v-if="data.item.stats.ultimaEscala.epidemiologica" :value="data.item.stats.ultimaEscala.epidemiologica" />
+                    <Badge v-if="data.item.stats.ultimaEscala.riscoContagio" :value="data.item.stats.ultimaEscala.riscoContagio" />
                 </div>
             </template>
             <template v-slot:cell(col-2)="data">
@@ -32,7 +32,7 @@
                         </popper>
                     </span>
 
-                    <span class="statusUltimoAtendimento" v-if="data.item.stats.ultimoAtendimento" :class="{ 'atendido' : data.item.stats.ultimoAtendimento.efetuado }">
+                    <span class="statusUltimoAtendimento" v-if="data.item.stats.ultimoAtendimento.data" :class="{ 'atendido' : data.item.stats.ultimoAtendimento.efetuado }">
                         <popper
                             trigger="hover"
                             :options="{
@@ -42,18 +42,18 @@
                             <div class="popper">
                                Último atendimento: 
                                <span v-if="data.item.stats.ultimoAtendimento.efetuado">Ligação atendida</span>
-                               <span v-if="!data.item.stats.ultimoAtendimento.efetuado">Ligação não atendida</span>
+                               <span v-if="!data.item.stats.ultimoAtendimento.efetuado">Não atendeu a ligação</span>
                             </div>
 
                             <span slot="reference">
                                 <i class="far fa-check-circle" v-show="data.item.stats.ultimoAtendimento.efetuado"></i>
                                 <i class="far fa-times-circle" v-show="!data.item.stats.ultimoAtendimento.efetuado"></i>
-                                {{ formatDate(data.item.stats.ultimoAtendimento.data) }}
+                                {{ data.item.stats.ultimoAtendimento.data }}
                             </span>
                         </popper>
                     </span>
 
-                    <span class="statusUltimoAtendimento atencao" v-if="!data.item.stats.ultimoAtendimento">
+                    <span class="statusUltimoAtendimento atencao" v-if="!data.item.stats.ultimoAtendimento.data">
                         <popper
                             trigger="hover"
                             :options="{
@@ -70,7 +70,7 @@
                         </popper>
                     </span>
 
-                    <span class="dataProximoAtendimento">
+                    <span class="dataProximoAtendimento" v-if="data.item.stats.dataProximoAtendimento">
                         <popper
                             trigger="hover"
                             :options="{
@@ -82,7 +82,7 @@
                             </div>
 
                             <span slot="reference">
-                                <i class="far fa-clock"></i> ??/??/????
+                                <i class="far fa-clock"></i> {{ data.item.stats.dataProximoAtendimento }}
                             </span>
                         </popper>
                     </span>
@@ -102,6 +102,8 @@ import Badge from '@/components/template/Badge';
 import Popper from 'vue-popperjs';
 import 'vue-popperjs/dist/vue-popper.css';
 
+const spreadsheetId = '1tBlFtcTlo1xtq4lU1O2Yq94wYaFfyL9RboX6mWjKhh4';
+
 export default {
     name: 'VigilanteHome',
     components: { Badge, 'popper': Popper },
@@ -116,7 +118,7 @@ export default {
     },
     methods: {
         loadIdosos() {
-            const url = `${baseApiUrl}/vigilantes/${this.$route.params.nome}/idosos`;
+            const url = `${baseApiUrl}/planilhas/${spreadsheetId}/vigilantes/${this.$route.params.indexVigilante}/idosos`;
             console.log(url);
             axios.get(url).then(res => {
                 this.idosos = res.data;

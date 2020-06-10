@@ -12,13 +12,17 @@ export default {
         color() {
             switch(this.value) {
                 case 'baixo':
+                case 'Baixo':
                     return 'green';
                 case 'médio':
+                case 'Médio':
                     return 'yellow';
                 case 'alto':
+                case 'Alto':
                     return 'red';
 
                 case '0 - Sem vulnerabilidades':
+                case 'O - Sem Vulnerabilidade':
                     return 'blue';
                 case 'A - vulnerabilidade financeira':
                 case 'B - vulnerabilidade alimentar':
@@ -37,6 +41,7 @@ export default {
                 case 'IVb - Idoso sintomático':
                     return 'red';
 
+                case '0 - Não atendeu à ligação':
                 default:
                     return 'gray'; 
             }

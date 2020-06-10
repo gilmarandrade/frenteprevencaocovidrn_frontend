@@ -12,8 +12,8 @@
         </ul>
         <h2>Vigilantes</h2>
         <ul>
-            <li v-for="item in vigilantes" :key="item._id">
-                <router-link :to="'/vigilante/'+item._id+'/'+item.nome">{{ item.nome }}</router-link>
+            <li v-for="item in vigilantes" :key="item.index">
+                <router-link :to="'/vigilante/'+item.index+'/'+item.nome">{{ item.nome }}</router-link>
             </li>
         </ul>
     </div>
@@ -24,6 +24,7 @@ import PageTitle from '../template/PageTitle';
 import { baseApiUrl, showError } from '@/global';
 import axios from 'axios';
 
+const spreadsheetId = '1tBlFtcTlo1xtq4lU1O2Yq94wYaFfyL9RboX6mWjKhh4';
 
 export default {
     name: 'Home',
@@ -36,7 +37,7 @@ export default {
     methods: {
         loadVigilantes() {
              console.log('load vigilantes');
-             const url = `${baseApiUrl}/vigilantes`;
+             const url = `${baseApiUrl}/planilhas/${spreadsheetId}/vigilantes`;
 
             axios.get(url).then(res => {
                 this.vigilantes = res.data
