@@ -1,16 +1,52 @@
 <template>
     <div>
         <h6>{{ $route.params.nome }}</h6>
-        <h1>Meus Idosos ({{idosos.length}})</h1>
+        <h1>Meus Idosos ({{idosos.length}})</h1> <span v-if="carregando">Carregando...</span>
         <b-table :items="idosos" :fields="fields">
             <template v-slot:cell(col-1)="data">
                 <div>
                     <b>{{ data.item.nome }}</b>
                 </div>
                 <div class="badges" v-if="data.item.stats.ultimaEscala">
-                    <Badge v-if="data.item.stats.ultimaEscala.vulnerabilidade" :value="data.item.stats.ultimaEscala.vulnerabilidade" />
-                    <Badge v-if="data.item.stats.ultimaEscala.epidemiologica" :value="data.item.stats.ultimaEscala.epidemiologica" />
-                    <Badge v-if="data.item.stats.ultimaEscala.riscoContagio" :value="data.item.stats.ultimaEscala.riscoContagio" />
+                     <popper v-if="data.item.stats.ultimaEscala.vulnerabilidade"
+                        trigger="hover"
+                        :options="{
+                            placement: 'top'
+                        }">
+                        <div class="popper">
+                            Escala de Vulnerabilidade
+                        </div>
+
+                        <span slot="reference">
+                            <Badge :value="data.item.stats.ultimaEscala.vulnerabilidade" />
+                        </span>
+                    </popper>
+                    <popper v-if="data.item.stats.ultimaEscala.epidemiologica"
+                        trigger="hover"
+                        :options="{
+                            placement: 'top'
+                        }">
+                        <div class="popper">
+                            Escala Epidemiológica
+                        </div>
+
+                        <span slot="reference">
+                            <Badge :value="data.item.stats.ultimaEscala.epidemiologica" />
+                        </span>
+                    </popper>
+                    <popper v-if="data.item.stats.ultimaEscala.riscoContagio"
+                        trigger="hover"
+                        :options="{
+                            placement: 'top'
+                        }">
+                        <div class="popper">
+                            Risco de Contágio por COVID-19
+                        </div>
+
+                        <span slot="reference">
+                            <Badge :value="data.item.stats.ultimaEscala.riscoContagio" />
+                        </span>
+                    </popper>
                 </div>
             </template>
             <template v-slot:cell(col-2)="data">
@@ -65,7 +101,7 @@
                             </div>
 
                             <span slot="reference">
-                                <i class="fas fa-exclamation-circle"></i> nunca atendido
+                                <i class="fas fa-exclamation-circle"></i> pendente
                             </span>
                         </popper>
                     </span>
@@ -88,7 +124,7 @@
                     </span>
                 </div>
                 <div>
-                    {{ data.item.telefone1 }} {{ data.item.telefone2 }}
+                    Telefones: {{ data.item.telefone1 }} {{ data.item.telefone2 }}
                 </div>
           </template>
         </b-table>
@@ -109,10 +145,12 @@ export default {
     components: { Badge, 'popper': Popper },
     data: function() {
         return {
+            carregando: true,
             idosos: [],
             fields: [ 
-                { key: 'col-1', label: 'col1' },
-                { key: 'col-2', label: 'col2' },
+                { key: 'stats.ultimaEscala.score', label: 'Score' },
+                { key: 'col-1', label: 'Idoso' },
+                { key: 'col-2', label: ' ' },
             ],
         }
     },
@@ -123,6 +161,7 @@ export default {
             axios.get(url).then(res => {
                 this.idosos = res.data;
                 console.log(this.idosos)
+                this.carregando = false;
             }).catch(showError)
         },
         formatDate(date) {
@@ -136,12 +175,20 @@ export default {
 </script>
 
 <style>
-    td:first-child {
+    /* table thead {
+        display: none;
+    } */
+
+    td:nth-child(1){
         /* background: red; */
-        width: 60%;
+        width: 10%;
+    }
+    td:nth-child(2) {
+        /* background: red; */
+        width: 50%;
     }
 
-    td:last-child {
+    td:nth-child(3) {
         text-align: right;
         /* background: blue; */
         width: 40%;

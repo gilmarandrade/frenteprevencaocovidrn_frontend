@@ -25,14 +25,18 @@ export default {
                 case 'O - Sem Vulnerabilidade':
                     return 'blue';
                 case 'A - vulnerabilidade financeira':
+                case 'A - Vulnerabilidade Financeira':
                 case 'B - vulnerabilidade alimentar':
+                case 'B - Vulnerabilidade Alimentar':
                     return 'yellow';
+                case 'C - Situação de violência':
+                    return 'red';
 
                 case 'Ia - Assintomático, mora com assintomáticos':
                 case 'Ib - Assintomático, mas vive sozinho':
                     return 'blue';
                 case 'IIa - Assintomático, mas sai de casa':
-                case 'IIb - Assitomático, mas recebe visita ou domiciliares saem':
+                case 'IIb - Assintomático, mas recebe visitas ou domiciliares saem':
                 case 'IIIa - Assintomático, mas com comorbidades':
                     return 'green';
                 case 'IIIb - Assintomático, mas tem contato com sintomáticos ou confirmados':
