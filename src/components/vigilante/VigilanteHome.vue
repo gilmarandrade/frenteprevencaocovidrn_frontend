@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h6>{{ $route.params.nome }}</h6>
+        <h6>{{ $route.params.vigilanteNome }}</h6>
         <h1>Meus Idosos ({{idosos.length}})</h1> <span v-if="carregando">Carregando...</span>
         <b-table :items="idosos" :fields="fields">
             <template v-slot:cell(col-1)="data">
@@ -68,7 +68,7 @@
                         </popper>
                     </span>
 
-                    <span class="statusUltimoAtendimento" v-if="data.item.stats.ultimoAtendimento.data" :class="{ 'atendido' : data.item.stats.ultimoAtendimento.efetuado }">
+                    <span class="statusUltimoAtendimento" v-if="data.item.stats.ultimoAtendimento" :class="{ 'atendido' : data.item.stats.ultimoAtendimento.efetuado }">
                         <popper
                             trigger="hover"
                             :options="{
@@ -84,12 +84,12 @@
                             <span slot="reference">
                                 <i class="far fa-check-circle" v-show="data.item.stats.ultimoAtendimento.efetuado"></i>
                                 <i class="far fa-times-circle" v-show="!data.item.stats.ultimoAtendimento.efetuado"></i>
-                                {{ data.item.stats.ultimoAtendimento.data }}
+                                {{ formatDate(data.item.stats.ultimoAtendimento.data) }}
                             </span>
                         </popper>
                     </span>
 
-                    <span class="statusUltimoAtendimento atencao" v-if="!data.item.stats.ultimoAtendimento.data">
+                    <span class="statusUltimoAtendimento atencao" v-if="!data.item.stats.ultimoAtendimento">
                         <popper
                             trigger="hover"
                             :options="{
@@ -118,7 +118,7 @@
                             </div>
 
                             <span slot="reference">
-                                <i class="far fa-clock"></i> {{ data.item.stats.dataProximoAtendimento }}
+                                <i class="far fa-clock"></i> {{ formatDate(data.item.stats.dataProximoAtendimento) }}
                             </span>
                         </popper>
                     </span>
@@ -138,7 +138,7 @@ import Badge from '@/components/template/Badge';
 import Popper from 'vue-popperjs';
 import 'vue-popperjs/dist/vue-popper.css';
 
-const spreadsheetId = '1tBlFtcTlo1xtq4lU1O2Yq94wYaFfyL9RboX6mWjKhh4';
+// const spreadsheetId = '1tBlFtcTlo1xtq4lU1O2Yq94wYaFfyL9RboX6mWjKhh4';
 
 export default {
     name: 'VigilanteHome',
@@ -148,7 +148,7 @@ export default {
             carregando: true,
             idosos: [],
             fields: [ 
-                { key: 'stats.ultimaEscala.score', label: 'Score' },
+                { key: 'score', label: 'Score' },
                 { key: 'col-1', label: 'Idoso' },
                 { key: 'col-2', label: ' ' },
             ],
@@ -156,7 +156,7 @@ export default {
     },
     methods: {
         loadIdosos() {
-            const url = `${baseApiUrl}/planilhas/${spreadsheetId}/vigilantes/${this.$route.params.indexVigilante}/idosos`;
+            const url = `${baseApiUrl}/unidades/unidadeid/vigilantes/${this.$route.params.vigilanteNome}/idosos`;
             console.log(url);
             axios.get(url).then(res => {
                 this.idosos = res.data;

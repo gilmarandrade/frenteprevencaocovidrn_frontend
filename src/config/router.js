@@ -26,7 +26,7 @@ const routes = [
     },
     {
         name: 'Página do vigilante',
-        path: '/vigilante/:indexVigilante/:nome',
+        path: '/vigilante/:vigilanteId/:vigilanteNome',
         component: VigilanteHome,
     },
     // {

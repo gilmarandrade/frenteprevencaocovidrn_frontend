@@ -12,8 +12,8 @@
         </ul> -->
         <h2>Vigilantes</h2>
         <ul>
-            <li v-for="item in vigilantes" :key="item.index">
-                <router-link :to="'/vigilante/'+item.index+'/'+item.nome">{{ item.nome }}</router-link>
+            <li v-for="item in vigilantes" :key="item._id">
+                <router-link :to="'/vigilante/'+item._id+'/'+item.nome">{{ item.nome }}</router-link>
             </li>
         </ul>
     </div>

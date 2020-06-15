@@ -30,6 +30,7 @@ export default {
                 case 'B - Vulnerabilidade Alimentar':
                     return 'yellow';
                 case 'C - Situação de violência':
+                case 'C - situação de violência':
                     return 'red';
 
                 case 'Ia - Assintomático, mora com assintomáticos':
