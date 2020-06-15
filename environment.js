@@ -5,7 +5,7 @@ module.exports = {
     port: process.env.PORT || 3000,
     node_env: process.env.NODE_ENV,
     // api: process.env.baseApiUrl,
-    // api: 'http://api-frenteprevencaocovidrn-org-br.umbler.net',
-    api: 'http://localhost:3000',
+    api: 'http://api-frenteprevencaocovidrn-org-br.umbler.net',
+    // api: 'http://localhost:3000',
     api_local: 'http://localhost:3000',
 }
