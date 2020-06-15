@@ -24,8 +24,6 @@ import PageTitle from '../template/PageTitle';
 import { baseApiUrl, showError } from '@/global';
 import axios from 'axios';
 
-const spreadsheetId = '1tBlFtcTlo1xtq4lU1O2Yq94wYaFfyL9RboX6mWjKhh4';
-
 export default {
     name: 'Home',
     components: { PageTitle },
@@ -36,8 +34,8 @@ export default {
     },
     methods: {
         loadVigilantes() {
-             console.log('load vigilantes');
-             const url = `${baseApiUrl}/planilhas/${spreadsheetId}/vigilantes`;
+            const url = `${baseApiUrl}/unidades/idunidade/vigilantes`;
+             console.log(url);
 
             axios.get(url).then(res => {
                 this.vigilantes = res.data
@@ -52,10 +50,5 @@ export default {
 </script>
 
 <style>
-    .stats {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-    }
 
 </style>
