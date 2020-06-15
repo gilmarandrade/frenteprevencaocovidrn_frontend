@@ -106,7 +106,7 @@
                         </popper>
                     </span>
 
-                    <span class="dataProximoAtendimento" v-if="data.item.stats.dataProximoAtendimento">
+                    <span class="dataProximoAtendimento" v-if="data.item.stats.ultimaEscala.dataProximoAtendimento">
                         <popper
                             trigger="hover"
                             :options="{
@@ -118,7 +118,7 @@
                             </div>
 
                             <span slot="reference">
-                                <i class="far fa-clock"></i> {{ formatDate(data.item.stats.dataProximoAtendimento) }}
+                                <i class="far fa-clock"></i> {{ formatDate(data.item.stats.ultimaEscala.dataProximoAtendimento) }}
                             </span>
                         </popper>
                     </span>
