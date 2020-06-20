@@ -1,24 +1,46 @@
 <template>
   <header class="header">
-      <a href="#" class="toggle" @click="toggleMenu" v-show="!hideToggle && isMenuVisible">
-          <i class="fa fa-lg fa-angle-left"></i>
-      </a>
-      <a href="#" class="toggle" @click="toggleMenu" v-show="!hideToggle && !isMenuVisible">
-          <i class="fa fa-lg fa-angle-down" ></i>
-      </a>
-      <h1 class="title">
-          <router-link to="/"> {{ title }}</router-link>
+        <a href="#" class="toggle" @click="toggleMenu" v-show="!hideToggle && isMenuVisible">
+            <i class="fa fa-lg fa-angle-left"></i>
+        </a>
+        <a href="#" class="toggle" @click="toggleMenu" v-show="!hideToggle && !isMenuVisible">
+            <i class="fa fa-lg fa-angle-down" ></i>
+        </a>
+        <h1 class="title">
+            <router-link to="/"> {{ title }}</router-link>
         </h1>
-      <UserDropdown v-if="!hideUserDropdown" />
+        <button class="btnSync" title="Sincronizar com planilhas" @click="sync">
+            <span v-show="syncState == 'error'">
+                <i class="fas fa-exclamation-circle"></i>
+                <span>erro de sincronização</span>
+            </span>
+            <span v-show="syncState == 'synced'">
+                <i class="fas fa-sync"></i>
+                <span>{{ formatDate(lastSync) }}</span>
+            </span>
+            <span v-show="syncState == 'syncing'">
+                <i class="fas fa-sync fa-spin"></i>
+                <span>sincronizando</span>
+            </span>
+        </button>
+        <UserDropdown v-if="!hideUserDropdown" />
   </header>
 </template>
 
 <script>
 import UserDropdown from './UserDropdown';
+import { baseApiUrl, showError } from '@/global';
+import axios from 'axios';
 
 export default {
     name: 'Header',
     components: { UserDropdown },
+    data: function() {
+        return {
+            syncState: 'synced',
+            lastSync: '00/00/0000 00:00',
+        }
+    },
     props: {
         title: String,
         hideToggle: Boolean,
@@ -32,7 +54,24 @@ export default {
     methods: {
         toggleMenu() {
             this.$store.commit('toggleMenu');
-        }
+        },
+        sync() {
+            this.syncState = 'syncing';
+            const url = `${baseApiUrl}/sync`;
+            console.log(url, this.syncState);
+            axios.get(url).then(res => {
+                console.log(res.data)
+                this.syncState = 'synced';
+                this.lastSync = res.data.time;
+            }).catch((err) => {
+                console.log(err);
+                this.syncState = 'error';
+                showError(err);
+            })
+        },
+        formatDate(date) {
+            return new Date(date).toLocaleString();
+        },
     }
 }
 </script>
@@ -79,5 +118,24 @@ export default {
 
     header.header > a.toggle:hover {
         background-color: rgba(0,0,0,0.4);   
+    }
+
+    .btnSync {
+        border: none;
+        position: relative;
+        height: 100%;
+        padding: 0 20px;
+        align-items: center;
+        color: white;
+        font-weight: 100;
+        background-color: transparent;
+    }
+
+    .btnSync span {
+        margin: 0 5px;
+    }
+
+    .btnSync:hover {
+        background-color: rgba(0,0,0,0.2);
     }
 </style>

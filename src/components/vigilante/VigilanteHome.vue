@@ -1,7 +1,7 @@
 <template>
     <div>
         <h6>{{ $route.params.vigilanteNome }}</h6>
-        <h1>Meus Idosos ({{idosos.length}}) <button @click="sync">Sync</button></h1> <span v-if="carregando">Carregando...</span>
+        <h1>Meus Idosos ({{idosos.length}})</h1> <span v-if="carregando">Carregando...</span>
         <b-table :items="idosos" :fields="fields">
             <template v-slot:cell(col-1)="data">
                 <div>
@@ -167,15 +167,6 @@ export default {
         formatDate(date) {
             return new Date(date).toLocaleString();
         },
-        sync() {
-            this.carregando = true;
-            const url = `${baseApiUrl}/sync`;
-            console.log(url);
-            axios.get(url).then(res => {
-                console.log(res.data)
-                this.loadIdosos();
-            }).catch(showError)
-        }
     },
     mounted() {
         this.loadIdosos();
