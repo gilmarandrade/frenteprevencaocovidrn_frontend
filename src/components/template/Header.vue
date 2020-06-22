@@ -57,7 +57,7 @@ export default {
         },
         sync() {
             this.syncState = 'syncing';
-            const url = `${baseApiUrl}/sync`;
+            const url = `${baseApiUrl}/paginatedSync`;
             console.log(url, this.syncState);
             axios.get(url).then(res => {
                 console.log(res.data)
