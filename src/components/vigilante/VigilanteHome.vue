@@ -106,7 +106,7 @@
                         </popper>
                     </span>
 
-                    <span class="dataProximoAtendimento" v-if="data.item.stats.ultimaEscala.dataProximoAtendimento">
+                    <span class="dataProximoAtendimento" v-if="data.item.stats.ultimaEscala && data.item.stats.ultimaEscala.dataProximoAtendimento">
                         <popper
                             trigger="hover"
                             :options="{
