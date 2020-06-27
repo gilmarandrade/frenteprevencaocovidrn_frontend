@@ -57,12 +57,13 @@ export default {
         },
         sync() {
             this.syncState = 'syncing';
-            const url = `${baseApiUrl}/paginatedSync`;
+            const url = `${baseApiUrl}/sync/100`;
             console.log(url, this.syncState);
             axios.get(url).then(res => {
                 console.log(res.data)
                 this.syncState = 'synced';
                 this.lastSync = res.data.time;
+                //TODO em caso de sucesso recarregar a página
             }).catch((err) => {
                 console.log(err);
                 this.syncState = 'error';
