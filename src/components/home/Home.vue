@@ -17,6 +17,7 @@
                     <router-link :to="'/vigilante/'+item._id+'/'+item.nome">{{ item.nome }}</router-link>
                 </li>
             </ul>
+            <router-link to="/admin">admin pages</router-link>
         </div>
         <div v-if="user.role === 'VIGILANTE'">
             <h2>Seja bem vindo vigilante</h2>
