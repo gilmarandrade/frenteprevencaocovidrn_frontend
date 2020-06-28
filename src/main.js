@@ -3,6 +3,7 @@ import App from './App.vue'
 
 import './config/msgs'
 import './config/bootstrap'
+import './config/axios'
 import store from './config/store'
 import router from './config/router'
 
@@ -15,7 +16,7 @@ const environment = require('../environment');
 console.log(environment);
 
 new Vue({
-store,
-router,
-render: h => h(App),
+    store,
+    router,
+    render: h => h(App),
 }).$mount('#app')
