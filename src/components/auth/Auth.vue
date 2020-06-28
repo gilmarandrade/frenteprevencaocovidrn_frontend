@@ -12,7 +12,7 @@
 <script>
 import { baseApiUrl, showError, userKey } from '@/global';
 import axios from 'axios';
-
+//TODO quando o usuario esta logado ele está conseguindo acessar a tela de login e fazer login novamente
 export default {
     name: 'Auth',
     data: function() {
