@@ -5,6 +5,7 @@ import Home from '@/components/home/Home'
 import IdososSpreadsheet from '@/components/googlesheets/idosos/IdososSpreadsheet'
 import GerenciamentoSpreadsheet from '@/components/googlesheets/gerenciamento/GerenciamentoSpreadsheet'
 import VigilanteHome from '@/components/vigilante/VigilanteHome'
+import Auth from '@/components/auth/Auth'
 
 Vue.use(VueRouter);
 
@@ -28,6 +29,11 @@ const routes = [
         name: 'Página do vigilante',
         path: '/vigilante/:vigilanteId/:vigilanteNome',
         component: VigilanteHome,
+    },
+    {
+        name: 'auth',
+        path: '/auth',
+        component: Auth,
     },
     // {
     //     name: 'adminPages',

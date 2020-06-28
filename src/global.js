@@ -1,5 +1,6 @@
 import Vue from 'vue';
 
+export const userKey = '__frente_prevencao_covid_rn';
 export const environment = require('../environment');
 export const baseApiUrl = require('../environment').api;
 export const node_env = require('../environment').node_env;
@@ -15,4 +16,4 @@ export function showError(e) {
     }
 }
 
-export default { baseApiUrl, showError }
+export default { baseApiUrl, showError, userKey }
