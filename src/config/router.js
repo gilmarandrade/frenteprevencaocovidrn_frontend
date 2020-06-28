@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+// import { userKey } from '@/global';
+
 import Home from '@/components/home/Home'
 import IdososSpreadsheet from '@/components/googlesheets/idosos/IdososSpreadsheet'
 import GerenciamentoSpreadsheet from '@/components/googlesheets/gerenciamento/GerenciamentoSpreadsheet'
@@ -14,6 +16,7 @@ const routes = [
         name: 'adminHome',
         path: '/',
         component: Home,
+        meta: { requiresAdmin: true }
     },
     {
         name: 'idososSpreadsheet',
@@ -42,7 +45,20 @@ const routes = [
     // },
 ]
 
-export default new VueRouter({
+const router = new VueRouter({
     mode: 'history',
     routes,
 })
+
+// router.beforeEach((to, from, next) => {
+//     const json = localStorage.getItem(userKey);//TODO fazer uma chamada ao backend para checar o role do usuario 
+
+//     if(to.matched.some(record => record.meta.requiresAdmin)) {
+//         const user = JSON.parse(json);
+//         user && user.role === 'ADMINISTRADOR' ? next() : next({ path: '/' })
+//     } else {
+//         next()
+//     }
+// })
+
+export default router;

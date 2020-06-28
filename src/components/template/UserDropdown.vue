@@ -11,9 +11,9 @@
           <div>
               {{ user.role }}
           </div>
-          <router-link to="/admin">
+          <!-- <router-link to="/admin">
               <i class="fa fa-cogs"></i> Administração
-          </router-link>
+          </router-link> -->
           <a href @click.prevent="logout">
               <i class="fa fa-sign-out-alt"></i> Sair
           </a>

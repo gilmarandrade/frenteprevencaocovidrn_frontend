@@ -26,12 +26,13 @@ export default {
                 .then(res => {
                     this.$store.commit('setUser', res.data);
                     localStorage.setItem(userKey, JSON.stringify(res.data));
-                    //TODO esse é o local de redirecionar dependendo do role?
-                    if(res.data.role === 'VIGILANTE') {
-                        this.$router.push({ name: 'vigilanteHome', params: { vigilanteId: res.data.id, vigilanteNome: res.data.name } });
-                    } else {
-                        this.$router.push({ path: '/'});
-                    }
+                    this.$router.push({ path: '/'});
+                    // //TODO esse é o local de redirecionar dependendo do role?
+                    // if(res.data.role === 'VIGILANTE') {
+                    //     this.$router.push({ name: 'vigilanteHome', params: { vigilanteId: res.data.id, vigilanteNome: res.data.name } });
+                    // } else {
+                    //     this.$router.push({ path: '/'});
+                    // }
                 })
                 .catch(showError);
         } 
