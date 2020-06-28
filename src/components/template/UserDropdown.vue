@@ -8,6 +8,9 @@
           <i class="fa fa-angle-down"></i>
       </div>
       <div class="user-dropdown-content">
+          <div>
+              {{ user.role }}
+          </div>
           <router-link to="/admin">
               <i class="fa fa-cogs"></i> Administração
           </router-link>

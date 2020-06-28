@@ -39,7 +39,7 @@ export default {
 
       if(!userData) {
         this.validatingToken = false;
-        this.$router.push({ name: 'auth' });
+        this.$router.push({ name: 'auth' });//TODO se o usuario acessa a pagina /auth diretamente ocorre erro Avoided redundant navigation to current location: "/auth"
         return;
       }
 
