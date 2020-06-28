@@ -44,10 +44,15 @@ export default {
       }
 
       const res = await axios.post(`${baseApiUrl}/validateToken`, userData);
-
+      console.log(res.data)
+      console.log(userData)
       if(res.data) {
         this.$store.commit('setUser', userData);
         //TODO esse seria o local de redirecionar o usuario para uma página dependendo da permissao
+        // console.log(userData)
+        if(userData.role === 'VIGILANTE') {
+          this.$router.push({ name: 'vigilanteHome', params: { vigilanteId: userData.id, vigilanteNome: userData.name } });
+        }
       } else {
         localStorage.removeItem(userKey);
         this.$router.push({ name: 'auth' });

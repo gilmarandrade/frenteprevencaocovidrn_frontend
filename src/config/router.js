@@ -11,7 +11,7 @@ Vue.use(VueRouter);
 
 const routes = [
     {
-        name: 'home',
+        name: 'adminHome',
         path: '/',
         component: Home,
     },
@@ -26,7 +26,7 @@ const routes = [
         component: GerenciamentoSpreadsheet,
     },
     {
-        name: 'Página do vigilante',
+        name: 'vigilanteHome',
         path: '/vigilante/:vigilanteId/:vigilanteNome',
         component: VigilanteHome,
     },
