@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h6>{{ $route.params.vigilanteNome }}</h6>
+        <h6>{{ user.nomeUnidade }} / {{ user.name }}</h6>
         <h1>Meus Idosos ({{idosos.length}})</h1> <span v-if="carregando">Carregando...</span>
         <b-table :items="idosos" :fields="fields">
             <template v-slot:cell(col-1)="data">
@@ -137,12 +137,13 @@ import axios from 'axios';
 import Badge from '@/components/template/Badge';
 import Popper from 'vue-popperjs';
 import 'vue-popperjs/dist/vue-popper.css';
-
-// const spreadsheetId = '1tBlFtcTlo1xtq4lU1O2Yq94wYaFfyL9RboX6mWjKhh4';
+// import { userKey } from '@/global';
+import { mapState } from 'vuex';
 
 export default {
     name: 'VigilanteHome',
     components: { Badge, 'popper': Popper },
+    computed: mapState(['user']),
     data: function() {
         return {
             carregando: true,
@@ -156,7 +157,7 @@ export default {
     },
     methods: {
         loadIdosos() {
-            const url = `${baseApiUrl}/unidades/unidadeid/vigilantes/${this.$route.params.vigilanteNome}/idosos`;
+            const url = `${baseApiUrl}/unidades/${this.user.collectionPrefix}/vigilantes/${this.user.name}/idosos`;
             console.log(url);
             axios.get(url).then(res => {
                 this.idosos = res.data;

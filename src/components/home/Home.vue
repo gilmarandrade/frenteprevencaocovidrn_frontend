@@ -25,7 +25,7 @@
         </div>
         <div v-if="user.role === 'VIGILANTE'">
             <h2>Seja bem vindo vigilante</h2>
-            <router-link :to="'/vigilante/'+user.id+'/'+user.name">Meus idosos</router-link>
+            <router-link :to="'/meusIdosos/'">Meus idosos</router-link>
         </div>
     </div>
 </template>

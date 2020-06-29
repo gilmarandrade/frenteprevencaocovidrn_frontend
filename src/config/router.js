@@ -30,8 +30,8 @@ const routes = [
         component: GerenciamentoSpreadsheet,
     },
     {
-        name: 'vigilanteHome',
-        path: '/vigilante/:vigilanteId/:vigilanteNome',
+        name: 'meusIdosos',
+        path: '/meusIdosos',
         component: VigilanteHome,
     },
     {
