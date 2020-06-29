@@ -8,6 +8,7 @@ import IdososSpreadsheet from '@/components/googlesheets/idosos/IdososSpreadshee
 import GerenciamentoSpreadsheet from '@/components/googlesheets/gerenciamento/GerenciamentoSpreadsheet'
 import VigilanteHome from '@/components/vigilante/VigilanteHome'
 import AdminPages from '@/components/administrador/AdminPages'
+import IdososPorVigilante from '@/components/administrador/IdososPorVigilante'
 import Auth from '@/components/auth/Auth'
 
 Vue.use(VueRouter);
@@ -32,6 +33,11 @@ const routes = [
         name: 'vigilanteHome',
         path: '/vigilante/:vigilanteId/:vigilanteNome',
         component: VigilanteHome,
+    },
+    {
+        name: 'idososPorVigilante',
+        path: '/unidade/:unidadePrefix/:unidadeNome/vigilante/:vigilanteId/:vigilanteNome',
+        component: IdososPorVigilante,
     },
     {
         name: 'auth',

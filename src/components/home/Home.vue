@@ -11,10 +11,14 @@
             </li>
         </ul> -->
         <div v-if="user.role === 'ADMINISTRADOR'">
-            <h2>Vigilantes</h2>
             <ul>
-                <li v-for="item in vigilantes" :key="item._id">
-                    <router-link :to="'/vigilante/'+item._id+'/'+item.nome">{{ item.nome }}</router-link>
+                <li v-for="unidade in unidades" :key="unidade._id">
+                    {{ unidade._id }} {{ unidade.nome }} (distrito {{ unidade.distrito }})
+                    <ul>
+                        <li v-for="vigilante in unidade.vigilantes" :key="vigilante.usuarioId">
+                            <router-link :to="'unidade/'+unidade.collectionPrefix+'/'+unidade.nome+'/vigilante/'+vigilante.usuarioId+'/'+vigilante.nome">{{ vigilante.nome }}</router-link>
+                        </li>
+                    </ul>
                 </li>
             </ul>
             <router-link to="/admin">admin pages</router-link>
@@ -38,16 +42,26 @@ export default {
     data: function() {
         return {
             vigilantes: [],
+            unidades: [],
         }
     },
     methods: {
         loadVigilantes() {
             const url = `${baseApiUrl}/unidades/idunidade/vigilantes`;
-             console.log(url);
+            console.log(url);
 
             axios.get(url).then(res => {
                 this.vigilantes = res.data
                 console.log(this.vigilantes)
+            }).catch(showError)
+        },
+        loadUnidades() {
+            const url = `${baseApiUrl}/unidades`;
+            console.log(url);
+
+            axios.get(url).then(res => {
+                this.unidades = res.data
+                console.log(this.unidades)
             }).catch(showError)
         }
     },
@@ -55,6 +69,7 @@ export default {
     mounted() {
         if(this.user.role === 'ADMINISTRADOR') {
             this.loadVigilantes();
+            this.loadUnidades();
         }
     }
 }
