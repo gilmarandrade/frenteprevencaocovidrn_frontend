@@ -7,7 +7,8 @@ import Home from '@/components/home/Home'
 import IdososSpreadsheet from '@/components/googlesheets/idosos/IdososSpreadsheet'
 import GerenciamentoSpreadsheet from '@/components/googlesheets/gerenciamento/GerenciamentoSpreadsheet'
 import VigilanteHome from '@/components/vigilante/VigilanteHome'
-import AdminPages from '@/components/administrador/AdminPages'
+import Unidades from '@/components/administrador/Unidades'
+import Unidade from '@/components/administrador/Unidade'
 import IdososPorVigilante from '@/components/administrador/IdososPorVigilante'
 import Auth from '@/components/auth/Auth'
 
@@ -45,9 +46,15 @@ const routes = [
         component: Auth,
     },
     {
-        name: 'adminPages',
-        path: '/admin',
-        component: AdminPages,
+        name: 'unidades',
+        path: '/unidades',
+        component: Unidades,
+        meta: { requiresAdmin: true }
+    },
+    {
+        name: 'unidade',
+        path: '/unidade/:id',
+        component: Unidade,
         meta: { requiresAdmin: true }
     },
 ]

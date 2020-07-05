@@ -21,7 +21,7 @@
                     </ul>
                 </li>
             </ul>
-            <router-link to="/admin">admin pages</router-link>
+            <router-link to="/unidades">unidades</router-link>
         </div>
         <div v-if="user.role === 'VIGILANTE'">
             <h2>Seja bem vindo vigilante</h2>
