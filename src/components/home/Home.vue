@@ -11,16 +11,6 @@
             </li>
         </ul> -->
         <div v-if="user.role === 'ADMINISTRADOR'">
-            <ul>
-                <li v-for="unidade in unidades" :key="unidade._id">
-                    {{ unidade._id }} {{ unidade.nome }} (distrito {{ unidade.distrito }})
-                    <ul>
-                        <li v-for="vigilante in unidade.vigilantes" :key="vigilante.usuarioId">
-                            <router-link :to="'unidade/'+unidade.collectionPrefix+'/'+unidade.nome+'/vigilante/'+vigilante.usuarioId+'/'+vigilante.nome">{{ vigilante.nome }}</router-link>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
             <router-link to="/unidades">unidades</router-link>
         </div>
         <div v-if="user.role === 'VIGILANTE'">
