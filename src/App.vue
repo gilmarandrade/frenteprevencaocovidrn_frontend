@@ -2,7 +2,7 @@
   <div id="app" :class="{ 'hide-menu' : !isMenuVisible || !user}">
    <Header title="Monitoramento de Idosos" :hideToggle="!user" :hideUserDropdown="!user"/>
    <Menu v-if="user"/>
-   <Loading v-if="validatingToken" />
+   <Loading v-if="isLoadingApp" />
    <Content v-else />
    <Footer />
   </div>
@@ -20,25 +20,20 @@ import Loading from '@/components/template/Loading';
 
 export default {
   name: 'App',
-  data: function() {
-    return {
-      validatingToken: true,
-    }
-  },
   components: {
     Header, Menu, Content, Footer, Loading
   },
-  computed: mapState(['isMenuVisible', 'user']),
+  computed: mapState(['isMenuVisible', 'user', 'isLoadingApp']),
   methods: {
     async validateToken() {
-      this.validatingToken = true;
+      this.$store.commit('setIsLoadingApp', true);
 
       const json = localStorage.getItem(userKey);
       const userData = JSON.parse(json);
       this.$store.commit('setUser', null);
 
       if(!userData) {
-        this.validatingToken = false;
+        this.$store.commit('setIsLoadingApp', false);
         this.$router.push({ name: 'auth' });//TODO se o usuario acessa a pagina /auth diretamente ocorre erro Avoided redundant navigation to current location: "/auth"
         return;
       }
@@ -53,7 +48,7 @@ export default {
         this.$router.push({ name: 'auth' });
       }
 
-      this.validatingToken = false;
+      this.$store.commit('setIsLoadingApp', false);
 
     }
   },

@@ -1,6 +1,6 @@
 <template>
   <div class="loading">
-      loading...
+      <i class="fas fa-spinner fa-pulse fa-5x"></i>
   </div>
 </template>
 

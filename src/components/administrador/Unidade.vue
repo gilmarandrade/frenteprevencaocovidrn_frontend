@@ -22,7 +22,7 @@
         <b-checkbox v-model="unidade.ativo" name="check-button" switch @change="toggleSync">
           {{ unidade.ativo ? 'Sincronização automática ativada': 'Sincronização automática desativada' }}
         </b-checkbox>
-        <button @click="manualSync">sincronizar agora</button>
+        <button @click="manualSync" class="btn btn-primary">sincronizar agora</button>
         <div v-if="loading">carregando...</div>
    </header>
    <div class="container">
@@ -85,8 +85,9 @@ export default {
             return new Date(date).toLocaleString();
         },
         toggleSync(e) {
-          this.loading = true; 
-          //TODO CHANGE STATE NO BANCO
+          //TODO escolher se vai usar o this.loading ou this.$store para mostrar um loading no sistema (ou usar silhouete)
+          this.loading = true;
+          this.$store.commit('setIsLoadingApp', true); 
           const url = `${baseApiUrl}/unidades/${this.$route.params.id}/ativacao/${e}`;
           console.log(url);
 
@@ -97,11 +98,13 @@ export default {
           }).catch((err) => {
                 console.log(err);
                 this.loading = false;
+                this.$store.commit('setIsLoadingApp', false);
                 showError(err);
           })
         },
         manualSync() {
           this.loading = true; 
+          this.$store.commit('setIsLoadingApp', true);
           //TODO CHANGE STATE NO BANCO
           const url = `${baseApiUrl}/unidades/${this.$route.params.id}/sync`;
           console.log(url);
@@ -113,6 +116,7 @@ export default {
           }).catch((err) => {
                 console.log(err);
                 this.loading = false;
+                this.$store.commit('setIsLoadingApp', false);
                 showError(err);
           })
         },

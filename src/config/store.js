@@ -8,6 +8,7 @@ export default new Vuex.Store({
     state: {
         isMenuVisible: false,
         user: null,
+        isLoadingApp: true,
     },
     mutations: {
         toggleMenu(state, isVisible) {
@@ -31,6 +32,9 @@ export default new Vuex.Store({
                 delete axios.defaults.headers.common['Authorization'];
                 state.isMenuVisible = false;
             }
+        },
+        setIsLoadingApp(state, isLoading){
+            state.isLoadingApp = isLoading;
         },
     },
 })
