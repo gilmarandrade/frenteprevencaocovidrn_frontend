@@ -23,6 +23,11 @@
                 <p>Distrito {{ unidade.distrito }}</p>
               </router-link>
             </li>
+            <li class="col-sm-6 col-md-4 col-lg-3">
+              <router-link to="/adicionarUnidade" class="item button">
+                <h2><i class="fas fa-plus"></i> Adicionar unidade</h2>
+              </router-link>
+            </li>
         </ul>
  </div>
 </template>
@@ -108,6 +113,11 @@ export default {
   .grid-list .item p {
     margin: 0;
     font-size: 14px;
+    color: rgba(0, 0, 0, 0.54);
+  }
+
+  .grid-list .item.button {
+    border-style: dashed;
     color: rgba(0, 0, 0, 0.54);
   }
 </style>

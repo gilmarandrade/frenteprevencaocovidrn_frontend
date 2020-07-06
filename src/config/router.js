@@ -9,6 +9,7 @@ import GerenciamentoSpreadsheet from '@/components/googlesheets/gerenciamento/Ge
 import VigilanteHome from '@/components/vigilante/VigilanteHome'
 import Unidades from '@/components/administrador/Unidades'
 import Unidade from '@/components/administrador/Unidade'
+import AdicionarUnidade from '@/components/administrador/AdicionarUnidade'
 import IdososPorVigilante from '@/components/administrador/IdososPorVigilante'
 import Auth from '@/components/auth/Auth'
 
@@ -56,6 +57,12 @@ const routes = [
         name: 'unidades',
         path: '/unidades',
         component: Unidades,
+        meta: { requiresAdmin: true }
+    },
+    {
+        name: 'adicionarUnidade',
+        path: '/adicionarUnidade',
+        component: AdicionarUnidade,
         meta: { requiresAdmin: true }
     },
 ]
