@@ -15,6 +15,7 @@ app.get('/', function (req, res) {
     res.send('Hello World from frenteprevencaocovidrn-org-br FRONTEND!');
 });
 
+//TODO refatorar esses metodos, não sei se sao necessarios
 app.get('/docs/:id/sheets/:sheetName/range/:range', async function(req, res) {
     const googleClient = await getGoogleClient();
     sheets.spreadsheets.values.get({

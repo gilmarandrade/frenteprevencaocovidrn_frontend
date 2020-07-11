@@ -5,6 +5,8 @@
    <Loading v-if="isLoadingApp" />
    <Content v-else />
    <Footer />
+   dskjdslkjf
+   <button @click="clickButton">emmit</button>
   </div>
 </template>
 
@@ -24,6 +26,11 @@ export default {
     Header, Menu, Content, Footer, Loading
   },
   computed: mapState(['isMenuVisible', 'user', 'isLoadingApp']),
+  sockets: {
+    connect: function () {
+      console.log('socket connected')
+    },
+  },
   methods: {
     async validateToken() {
       this.$store.commit('setIsLoadingApp', true);
@@ -50,6 +57,11 @@ export default {
 
       this.$store.commit('setIsLoadingApp', false);
 
+    },
+    clickButton() {
+      // $socket is socket.io-client instance
+      console.log('emit_method')
+      this.$socket.emit('emit_method', { descricao: 'Minhas informações', preco: 2423423})
     }
   },
   created() {
