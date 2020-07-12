@@ -103,23 +103,32 @@ export default {
           })
         },
         manualSync() {
-          this.loading = true; 
-          this.$store.commit('setIsLoadingApp', true);
-          //TODO CHANGE STATE NO BANCO
-          const url = `${baseApiUrl}/unidades/${this.$route.params.id}/sync`;
-          console.log(url);
+          // $socket is socket.io-client instance
+          console.log('emit syncEvent')
+          this.$socket.emit('syncEvent', { idUnidade: this.unidade._id,  descricao: this.mensagem, data: new Date(), numero: Math.random() })
 
-          axios.get(url).then(res => {
-            console.log(res)
-            this.$router.go();//refresh page
+          // this.loading = true; 
+          // this.$store.commit('setIsLoadingApp', true);
+          // //TODO CHANGE STATE NO BANCO
+          // const url = `${baseApiUrl}/unidades/${this.$route.params.id}/sync`;
+          // console.log(url);
 
-          }).catch((err) => {
-                console.log(err);
-                this.loading = false;
-                this.$store.commit('setIsLoadingApp', false);
-                showError(err);
-          })
+          // axios.get(url).then(res => {
+          //   console.log(res)
+          //   this.$router.go();//refresh page
+
+          // }).catch((err) => {
+          //       console.log(err);
+          //       this.loading = false;
+          //       this.$store.commit('setIsLoadingApp', false);
+          //       showError(err);
+          // })
         },
+    },
+    sockets: {
+      connect: function () {
+        console.log('socket connected');
+      },
     },
     mounted() {
       this.loadUnidade();

@@ -9,7 +9,11 @@ export default new Vuex.Store({
         isMenuVisible: false,
         user: null,
         isLoadingApp: true,
-        syncStatus: null,
+        syncStatus: { 
+            isSyncing: false,
+            progress: 0,
+            lastSyncDate: null,
+        },
     },
     mutations: {
         toggleMenu(state, isVisible) {

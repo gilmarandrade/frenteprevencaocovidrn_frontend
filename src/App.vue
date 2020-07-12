@@ -5,9 +5,6 @@
    <Loading v-if="isLoadingApp" />
    <Content v-else />
    <Footer />
-   <input type="text" v-model="mensagem"/>
-   {{ syncStatus }}
-   <button @click="clickButton">emmit</button>
   </div>
 </template>
 
@@ -31,12 +28,7 @@ export default {
       mensagem: 'digite sua mensagem'
     }
   },
-  computed: mapState(['isMenuVisible', 'user', 'isLoadingApp', 'syncStatus']),
-  sockets: {
-    connect: function () {
-      console.log('socket connected');
-    },
-  },
+  computed: mapState(['isMenuVisible', 'user', 'isLoadingApp']),
   methods: {
     async validateToken() {
       this.$store.commit('setIsLoadingApp', true);
@@ -63,11 +55,6 @@ export default {
 
       this.$store.commit('setIsLoadingApp', false);
 
-    },
-    clickButton() {
-      // $socket is socket.io-client instance
-      console.log('emit syncEvent')
-      this.$socket.emit('syncEvent', { idUnidade: '5ee65a93aea16d7418e6e7e4',  descricao: this.mensagem, data: new Date(), numero: Math.random() })
     }
   },
   created() {
