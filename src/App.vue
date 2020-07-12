@@ -5,7 +5,8 @@
    <Loading v-if="isLoadingApp" />
    <Content v-else />
    <Footer />
-   dskjdslkjf
+   <input type="text" v-model="mensagem"/>
+   {{ syncStatus }}
    <button @click="clickButton">emmit</button>
   </div>
 </template>
@@ -25,10 +26,15 @@ export default {
   components: {
     Header, Menu, Content, Footer, Loading
   },
-  computed: mapState(['isMenuVisible', 'user', 'isLoadingApp']),
+  data: function() {
+    return {
+      mensagem: 'digite sua mensagem'
+    }
+  },
+  computed: mapState(['isMenuVisible', 'user', 'isLoadingApp', 'syncStatus']),
   sockets: {
     connect: function () {
-      console.log('socket connected')
+      console.log('socket connected');
     },
   },
   methods: {
@@ -60,8 +66,8 @@ export default {
     },
     clickButton() {
       // $socket is socket.io-client instance
-      console.log('emit_method')
-      this.$socket.emit('emit_method', { descricao: 'Minhas informações', preco: 2423423})
+      console.log('emit syncEvent')
+      this.$socket.emit('syncEvent', { idUnidade: '5ee65a93aea16d7418e6e7e4',  descricao: this.mensagem, data: new Date(), numero: Math.random() })
     }
   },
   created() {

@@ -9,6 +9,7 @@ export default new Vuex.Store({
         isMenuVisible: false,
         user: null,
         isLoadingApp: true,
+        syncStatus: null,
     },
     mutations: {
         toggleMenu(state, isVisible) {
@@ -36,5 +37,14 @@ export default new Vuex.Store({
         setIsLoadingApp(state, isLoading){
             state.isLoadingApp = isLoading;
         },
+        SOCKET_syncStatusEvent(state, data){
+            console.log( 'syncStatusEvent', data);
+            state.syncStatus = data;
+        }
     },
+    // actions: {
+    //     SOCKET_syncStatusEvent: function (data) {
+    //         console.log( 'syncStatusEvent', data)
+    //     }
+    // }
 })
