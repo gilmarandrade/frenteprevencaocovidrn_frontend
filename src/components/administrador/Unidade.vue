@@ -53,9 +53,16 @@
        </div>
        <div class="card mb-4">
          <div class="card-body">
-            <h5 class="card-title">Usuários <button class="btn btn-primary float-right mb-3">add</button></h5>
+            <h5 class="card-title">
+              Usuários
+              <router-link :to="'/unidades/'+unidade._id+'/'+unidade.nome+'/addUsuario'" class="btn btn-primary float-right mb-3">add</router-link>
+            </h5>
             
-            <b-table :items="usuarios" :fields="fieldsUsuarios"></b-table>
+            <b-table :items="usuarios" :fields="fieldsUsuarios">
+              <template v-slot:cell(link)="data">
+                <router-link :to="'/unidades/'+unidade.collectionPrefix+'/'+unidade.nome+'/vigilantes/'+data.item._id+'/'+data.item.name">{{ data.item.name }}</router-link>
+              </template>
+            </b-table>
          </div>
        </div>
    </div>
@@ -78,7 +85,8 @@ export default {
             loading: false,
             usuarios: [],
             fieldsUsuarios: [ 
-                { key: 'name', label: 'nome' },
+                { key: 'link', label: '' },
+                // { key: 'name', label: 'nome' },
                 { key: 'email', label: 'email' },
                 { key: 'role', label: 'tipo' },
             ],

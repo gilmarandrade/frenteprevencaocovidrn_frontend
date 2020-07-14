@@ -10,6 +10,7 @@ import VigilanteHome from '@/components/vigilante/VigilanteHome'
 import Unidades from '@/components/administrador/Unidades'
 import Unidade from '@/components/administrador/Unidade'
 import AdicionarUnidade from '@/components/administrador/AdicionarUnidade'
+import AdicionarUsuario from '@/components/administrador/AdicionarUsuario'
 import IdososPorVigilante from '@/components/administrador/IdososPorVigilante'
 import Auth from '@/components/auth/Auth'
 
@@ -46,6 +47,12 @@ const routes = [
         name: 'auth',
         path: '/auth',
         component: Auth,
+    },
+    {
+        name: 'adicionarUsuarioDaUnidade',
+        path: '/unidades/:id/:unidadeNome/addUsuario',
+        component: AdicionarUsuario,
+        meta: { requiresAdmin: true }
     },
     {
         name: 'unidade',
