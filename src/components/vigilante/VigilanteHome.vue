@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="listaIdosos">
         <h6>{{ user.nomeUnidade }} / {{ user.name }}</h6>
         <h1>Meus Idosos ({{idosos.length}})</h1> <span v-if="carregando">Carregando...</span>
         <b-table :items="idosos" :fields="fields">
@@ -180,48 +180,49 @@ export default {
         display: none;
     } */
 
-    td:nth-child(1){
+    .listaIdosos td:nth-child(1){
         /* background: red; */
         width: 10%;
     }
-    td:nth-child(2) {
+
+    .listaIdosos td:nth-child(2) {
         /* background: red; */
         width: 50%;
     }
 
-    td:nth-child(3) {
+    .listaIdosos td:nth-child(3) {
         text-align: right;
         /* background: blue; */
         width: 40%;
     }
 
-    .badges .badge {
+    .listaIdosos .badges .badge {
         margin-right: 8px;
     }
 
-    .statusAtendimentos > span {
+    .listaIdosos .statusAtendimentos > span {
         margin-left: 15px;
     }
 
-    .statusUltimoAtendimento {
+    .listaIdosos .statusUltimoAtendimento {
         /* background: red; */
         color: rgb(235, 87, 87);
     }
 
-    .statusUltimoAtendimento.atendido {
+    .listaIdosos .statusUltimoAtendimento.atendido {
         color: rgb(39, 174, 96);
     }
 
-    .statusUltimoAtendimento.atencao {
+    .listaIdosos .statusUltimoAtendimento.atencao {
         /* background: yellow; */
         color: rgb(235, 87, 87);
     }
 
-    .dataProximoAtendimento {
+    .listaIdosos .dataProximoAtendimento {
         /* background: blue; */
     }
 
-    .dataProximoAtendimento.atencao {
+    .listaIdosos .dataProximoAtendimento.atencao {
         color: rgb(235, 87, 87);
     }
 

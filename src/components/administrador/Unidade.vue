@@ -51,6 +51,13 @@
             </ul>
          </div>
        </div>
+       <div class="card mb-4">
+         <div class="card-body">
+            <h5 class="card-title">Usuários <button class="btn btn-primary float-right mb-3">add</button></h5>
+            
+            <b-table :items="usuarios" :fields="fieldsUsuarios"></b-table>
+         </div>
+       </div>
    </div>
 
  </div>
@@ -69,6 +76,12 @@ export default {
         return {
             unidade: null,
             loading: false,
+            usuarios: [],
+            fieldsUsuarios: [ 
+                { key: 'name', label: 'nome' },
+                { key: 'email', label: 'email' },
+                { key: 'role', label: 'tipo' },
+            ],
         }
     },
     methods: {
@@ -79,6 +92,15 @@ export default {
             axios.get(url).then(res => {
                 this.unidade = res.data
                 console.log(this.unidade)
+            }).catch(showError)
+        },
+        loadUsuarios() {
+            const url = `${baseApiUrl}/unidades/${this.$route.params.id}/usuarios`;
+            console.log(url);
+
+            axios.get(url).then(res => {
+                this.usuarios = res.data
+                console.log(this.usuarios)
             }).catch(showError)
         },
         formatDate(date) {
@@ -132,6 +154,7 @@ export default {
     },
     mounted() {
       this.loadUnidade();
+      this.loadUsuarios();
     }
 }
 </script>
